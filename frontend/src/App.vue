@@ -1,16 +1,23 @@
+<!-- 展示模板 -->
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
+    <hello></hello>
   </div>
 </template>
 
 <script>
+// 导入组件
+import Hello from './components/Hello'
+
 export default {
-  name: 'App'
+  name: 'app',
+  components: {
+    Hello
+  }
 }
 </script>
-
+<!-- 样式代码 -->
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
