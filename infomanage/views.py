@@ -24,9 +24,18 @@ def year_archive(request, year):
     return render(request, "infomanage/matchtest.html", context)
 
 
-def month_archive(request, year,month):
-    context = {'msg': year + '.'+ month + ' : month_archive'}
+def month_archive(request, year, month):
+    context = {'msg': year + '.' + month + ' : month_archive'}
     return render(request, "infomanage/matchtest.html", context)
+
+
+def group_year_archive(request, year):
+    return render(request, "infomanage/group_year.html", locals())
+
+
+def group_month_archive(request, year, month):
+    return render(request, "infomanage/group_month.html", locals())
+
 
 # def hello(request, name):
 #     print name

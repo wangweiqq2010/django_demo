@@ -12,6 +12,10 @@ urlpatterns = [
     url(r'^matchtest/([0-9]{4})/$', views.year_archive, name="year_archive"),
     url(r'^matchtest/([0-9]{4})/([0-9]{2})/$', views.month_archive, name="month_archive"),
 
+    # 命名组测试
+    url(r'^group/(?P<year>\d{4})/$', views.group_year_archive, name="group_year_archive"),
+    url(r'^group/(?P<year>\d{4})/(?P<month>\d{2})/$', views.group_month_archive, name="group_month_archive"),
+
 
     # url(r'^(\w+)/$', views.hello, name='hello'),
     # url(r'^testdb$', views.testdb, name='testdb'),
