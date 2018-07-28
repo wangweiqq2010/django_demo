@@ -16,6 +16,9 @@ urlpatterns = [
     url(r'^group/(?P<year>\d{4})/$', views.group_year_archive, name="group_year_archive"),
     url(r'^group/(?P<year>\d{4})/(?P<month>\d{2})/$', views.group_month_archive, name="group_month_archive"),
 
+    # 额外参数测试
+    url(r'^extra_parameter/(?P<year>\d{4})/$', views.extra_parameter, {"month": "06"}, name="extra_parameter"),
+
 
     # url(r'^(\w+)/$', views.hello, name='hello'),
     # url(r'^testdb$', views.testdb, name='testdb'),

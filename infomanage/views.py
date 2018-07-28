@@ -37,6 +37,9 @@ def group_month_archive(request, year, month):
     return render(request, "infomanage/group_month.html", locals())
 
 
+def extra_parameter(request, year, month):
+    return render(request, "infomanage/group_month.html", locals())
+
 # def hello(request, name):
 #     print name
 #     context = {'name': name}
