@@ -3,9 +3,10 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from django.urls import reverse
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 
 
 # from models import Test
@@ -40,6 +41,22 @@ def group_month_archive(request, year, month):
 def extra_parameter(request, year, month):
     return render(request, "infomanage/group_month.html", locals())
 
+
+def add_test(request):
+    return render(request, "infomanage/add_test.html")
+
+
+def add(request, first, second):
+    add_result = int(first) + int(second)
+    msg = str(first) + "+" + str(second) + "=" + str(add_result)
+    return HttpResponse("<h1>" + msg + "</h>")
+
+
+def old_add_redirect(request, a, b):
+    return HttpResponseRedirect(
+        reverse('new_add', args=(a, b))
+    )
+
 # def hello(request, name):
 #     print name
 #     context = {'name': name}
@@ -72,8 +89,7 @@ def extra_parameter(request, year, month):
 #     # Test.objects.get(id=2).delete()
 #     return HttpResponse("<p>数据添加成功！</p>")
 #
-# def search_form(request):
-#     return render(request, 'hello/search_form.html')
+
 #
 # def search(request):
 #     request.encoding = 'utf8'

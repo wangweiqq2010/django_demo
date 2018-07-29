@@ -6,7 +6,6 @@ from . import views
 
 # 二级路由测试
 # extra_patterns = [
-#
 #     url(r'^(?P<year>\d{4})/$', views.group_year_archive, name="group_year_archive"),
 #     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$', views.group_month_archive, name="group_month_archive"),
 # ]
@@ -29,7 +28,13 @@ urlpatterns = [
     # 额外参数测试
     url(r'^extra_parameter/(?P<year>\d{4})/$', views.extra_parameter, {"month": "06"}, name="extra_parameter"),
 
-
+    # 别名测试
+    url(r'^add_test/$', views.add_test, name="add_test"),
+    url(r'^add/(?P<first>\d+)/(?P<second>\d+)/$', views.add, name='add'),
+    # url(r'^new_add/(?P<first>\d+)/(?P<second>\d+)/$', views.add, name='new_add'),
+    url(r'^my_new_add/(?P<first>\d+)/(?P<second>\d+)/$', views.add, name='new_add'),
+    # 原有url仍可用
+    url(r'^new_add/(\d+)/(\d+)/$', views.old_add_redirect),
 
     # url(r'^(\w+)/$', views.hello, name='hello'),
     # url(r'^testdb$', views.testdb, name='testdb'),
