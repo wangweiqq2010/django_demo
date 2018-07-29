@@ -1,8 +1,15 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 
-from django.conf.urls import url
+from django.conf.urls import url,include
 from . import views
+
+# 二级路由测试
+# extra_patterns = [
+#
+#     url(r'^(?P<year>\d{4})/$', views.group_year_archive, name="group_year_archive"),
+#     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$', views.group_month_archive, name="group_month_archive"),
+# ]
 
 urlpatterns = [
     url('^$', views.index, name='infomanage_index'),
@@ -16,8 +23,12 @@ urlpatterns = [
     url(r'^group/(?P<year>\d{4})/$', views.group_year_archive, name="group_year_archive"),
     url(r'^group/(?P<year>\d{4})/(?P<month>\d{2})/$', views.group_month_archive, name="group_month_archive"),
 
+    # 二级路由测试
+    # url(r'^group/', include(extra_patterns)),
+
     # 额外参数测试
     url(r'^extra_parameter/(?P<year>\d{4})/$', views.extra_parameter, {"month": "06"}, name="extra_parameter"),
+
 
 
     # url(r'^(\w+)/$', views.hello, name='hello'),
@@ -28,3 +39,4 @@ urlpatterns = [
     # url(r'^index1/(?P<id>\d{3})/$',views.index1,name='index1'),
 
 ]
+
