@@ -31,6 +31,7 @@ def month_archive(request, year, month):
 
 
 def group_year_archive(request, year):
+# def group_year_archive(request, year='2018'):
     return render(request, "infomanage/group_year.html", locals())
 
 

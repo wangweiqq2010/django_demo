@@ -22,6 +22,9 @@ urlpatterns = [
     url(r'^group/(?P<year>\d{4})/$', views.group_year_archive, name="group_year_archive"),
     url(r'^group/(?P<year>\d{4})/(?P<month>\d{2})/$', views.group_month_archive, name="group_month_archive"),
 
+    # 指定view的默认配置
+    # url(r'group/$', views.group_year_archive, name="group_year_archive_null"),
+
     # 二级路由测试
     # url(r'^group/', include(extra_patterns)),
 
