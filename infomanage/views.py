@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 import models
+import datetime
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -131,10 +132,44 @@ def add_math(request):
 
 
 def search_test(request):
+    # 查询所有
     student = models.Student.objects.all()
     for s in student:
         print s.name + "  " + str(s.math)
     print "-"*20
+    # 获取单条数据，不存在则报错（不建议）
+    models.Student.objects.get(id=1)
+
+    # 获取指定条件的数据
+    models.Student.objects.filter(name='xiaoming')
+    # 将指定条件的数据更新
+    models.Student.objects.filter(name='xiaoming').update(gender='M')
+
+    models.Student.objects.filter(id__lt=3, id__gt=2)  # 获取id大于2 且 小于3的值
+
+    models.Student.objects.filter(id__in=[1, 2, 3])  # 获取id等于1、2、3的数据
+
+    models.Student.objects.filter(name__contains="xiao")
+
+    models.Student.objects.filter(name__icontains="xiao")  # icontains大小写不敏感
+
+    models.Student.objects.filter(name='seven').order_by('id')    # asc
+    models.Student.objects.filter(name='seven').order_by('-id')   # desc
+
+    # regex正则匹配，iregex 不区分大小写
+
+    models.Student.objects.get(name__regex=r'^(An?|The) +')
+    models.Student.objects.get(name__iregex=r'^(an?|the) +')
+
+    # date
+    #
+    models.Teacher.objects.filter(join_date__date=datetime.date(2005, 1, 1))
+    models.Teacher.objects.filter(join_date__date__gt=datetime.date(2005, 1, 1))
+
+    # year
+    #
+    models.Teacher.objects.filter(join_date__year=2005)
+    models.Teacher.objects.filter(join_date__year__gte=2005)
 
     return redirect(reverse(viewname="model_test"))
 
