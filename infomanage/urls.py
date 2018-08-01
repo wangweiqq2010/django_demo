@@ -39,6 +39,18 @@ urlpatterns = [
     # 原有url仍可用
     url(r'^new_add/(\d+)/(\d+)/$', views.old_add_redirect),
 
+    # model测试
+    url(r'^model_test/$', views.model_test, name='model_test'),
+    url(r'^add_teacher/$', views.add_teacher, name='add_teacher'),
+    url(r'^add_student/$', views.add_student, name='add_student'),
+    url(r'^add_math/$', views.add_math, name='add_math'),
+    url(r'^search_test/$', views.search_test, name='search_test'),
+    url(r'^add_math/$', views.add_math, name='add_math'),
+    url(r'^add_math/$', views.add_math, name='add_math'),
+    url(r'^add_math/$', views.add_math, name='add_math'),
+
+
+
     # url(r'^(\w+)/$', views.hello, name='hello'),
     # url(r'^testdb$', views.testdb, name='testdb'),
     # url(r'^search_form$', views.search_form, name='searchform'),
