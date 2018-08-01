@@ -34,6 +34,9 @@ class Student(Human):
     class Meta:
         db_table = 'student'
 
+    # def __unicode__(self):  # 在Python3中用 __str__ 代替 __unicode__
+    #     return self.name
+
 
 class Math(models.Model):
     student = models.CharField(max_length=50)
